@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7155312129670048367}
   - component: {fileID: 6438118723878110089}
   - component: {fileID: 1652235140809243641}
+  - component: {fileID: -7133670648383709818}
   m_Layer: 0
   m_Name: platform right
   m_TagString: Platform
@@ -27,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7021046421163967317}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.89, y: 0.24, z: 0}
+  m_LocalPosition: {x: -3.5, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8732573710438848161}
@@ -126,6 +127,19 @@ MonoBehaviour:
   oneBanana: {fileID: 4841413821572121370, guid: d90c0b5afb5ffcc489e4a54fb8ba0ac3, type: 3}
   Bananas: {fileID: 4772993111748126628, guid: 16441d6360f9cd046bb58b546f05de70, type: 3}
   spawn_point: {fileID: 8732573710438848161}
+--- !u!114 &-7133670648383709818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7021046421163967317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36b72976e433cf144b922c8f3295429c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.3
 --- !u!1 &7165708758170037685
 GameObject:
   m_ObjectHideFlags: 0

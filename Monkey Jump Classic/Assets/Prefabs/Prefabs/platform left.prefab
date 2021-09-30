@@ -42,6 +42,8 @@ GameObject:
   - component: {fileID: 8330273031363518346}
   - component: {fileID: 4125222792936031380}
   - component: {fileID: 5459091228234335667}
+  - component: {fileID: 7847150187478607854}
+  - component: {fileID: -704048512140129996}
   m_Layer: 0
   m_Name: platform left
   m_TagString: Platform
@@ -156,3 +158,29 @@ MonoBehaviour:
   oneBanana: {fileID: 4841413821572121370, guid: d90c0b5afb5ffcc489e4a54fb8ba0ac3, type: 3}
   Bananas: {fileID: 4772993111748126628, guid: 16441d6360f9cd046bb58b546f05de70, type: 3}
   spawn_point: {fileID: 4739680449307504201}
+--- !u!114 &7847150187478607854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4266899730528583208}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ca42d30425d19c46b45fcd37c23be00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+--- !u!114 &-704048512140129996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4266899730528583208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 678c2faf3823f1b4293ae09c321a20d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.3
