@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -13,10 +14,15 @@ public class PlayerScript : MonoBehaviour
     private int push_Count;
     private bool player_Died;
 
+    private Text bananaTextScore;
+    private int scorecount;
+
     // Start is called before the first frame update
     void Awake()
     {
         myBody = GetComponent<Rigidbody2D>();
+
+        bananaTextScore = GameObject.Find("Text").GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -70,6 +76,9 @@ public class PlayerScript : MonoBehaviour
 
         if(target.tag == "NormalPush")
         {
+            scorecount++;
+
+            bananaTextScore.text = "x" + scorecount;
 
             myBody.velocity = new Vector2(myBody.velocity.x, normal_Push);
 
