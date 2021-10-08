@@ -16,6 +16,7 @@ public class PlayerScript : MonoBehaviour
 
     private Text bananaTextScore;
     private int scorecount;
+    private float counterFlag;
 
     // Start is called before the first frame update
     void Awake()
@@ -35,7 +36,13 @@ public class PlayerScript : MonoBehaviour
     void move()
     {
 
-        if(player_Died)
+        if(player_Died && counterFlag < 100)
+        {
+            transform.rotation = Quaternion.Euler(0 , 0, counterFlag);
+            counterFlag = counterFlag + 1;
+        }
+
+        if(player_Died && counterFlag >= 100)
         {
             return;
         }
@@ -109,6 +116,8 @@ public class PlayerScript : MonoBehaviour
 
         if(target.tag == "FallDown" || target.tag == "Bird")
         {
+            myBody.velocity = new Vector2(0f, 0f);
+
             player_Died = true;
 
             SoundManager.instance.GameOverSoundFX();
@@ -119,4 +128,5 @@ public class PlayerScript : MonoBehaviour
 
 
     }
+
 }
