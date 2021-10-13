@@ -20,6 +20,8 @@ public class PlatformSpawner : MonoBehaviour
 
     private int platform_spawned;
 
+    private int score;
+
     [SerializeField]
 
     private Transform platform_parent;
@@ -42,10 +44,10 @@ public class PlatformSpawner : MonoBehaviour
     void Start()
     {
         last_y = transform.position.y;
-        SpawnPlatforms();
+        SpawnPlatforms(score);
     }
 
-    public void SpawnPlatforms()
+    public void SpawnPlatforms(int score)
     {
         Vector2 temp = transform.position;
         GameObject newplatform = null;
@@ -72,11 +74,31 @@ public class PlatformSpawner : MonoBehaviour
             platform_spawned++;
         }
 
-        if(Random.Range(0, 2) > 0)
+        if(score == 0)
         {
-            SpawnBird();
+            bird.GetComponent<fly>().enabled = false;
+            right_platform.GetComponent<platformrightmover>().enabled = false;
+            left_platform.GetComponent<platformleftmover>().enabled = false;
         }
-
+         
+        if(score > 10)
+        {   
+            if(Random.Range(0,2) > 0)
+            {
+                SpawnBird();
+            }
+            
+        }
+        if(score > 15)
+        {
+            bird.GetComponent<fly>().enabled = true;
+        }
+        
+        if(score > 20)
+        {
+            right_platform.GetComponent<platformrightmover>().enabled = true;
+            left_platform.GetComponent<platformleftmover>().enabled = true;
+        }
     }
 
 
@@ -94,4 +116,5 @@ public class PlatformSpawner : MonoBehaviour
 
         newBird.transform.parent = platform_parent;
     }
+
 }
