@@ -7,6 +7,9 @@ public class PlatformSpawner : MonoBehaviour
 
     public static PlatformSpawner instance;
 
+    private int score;
+
+
     [SerializeField]
     private GameObject left_platform, right_platform;
 
@@ -29,6 +32,7 @@ public class PlatformSpawner : MonoBehaviour
     public float bird_y = 5f;
     private float bird_x_min = -2.3f, bird_x_max = 2.3f;
 
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -42,10 +46,12 @@ public class PlatformSpawner : MonoBehaviour
     void Start()
     {
         last_y = transform.position.y;
-        SpawnPlatforms();
+        right_platform.GetComponent<platformrightmover>().enabled = false;
+        left_platform.GetComponent<platformleftmover>().enabled = false;
+        SpawnPlatforms(score);
     }
 
-    public void SpawnPlatforms()
+    public void SpawnPlatforms(int score)
     {
         Vector2 temp = transform.position;
         GameObject newplatform = null;
@@ -58,12 +64,20 @@ public class PlatformSpawner : MonoBehaviour
             {
                 temp.x = Random.Range(left_x_min, left_x_max);
                 newplatform = Instantiate(right_platform, temp, Quaternion.identity);
+                if(score > 10)
+                {
+                    right_platform.GetComponent<platformrightmover>().enabled = true;
+                }
 
             }
             else
             {
                 temp.x = Random.Range(right_x_min, right_x_max);
                 newplatform = Instantiate(left_platform, temp, Quaternion.identity);
+                if(score > 10)
+                {
+                    left_platform.GetComponent<platformleftmover>().enabled = true;
+                }
             }
 
             newplatform.transform.parent = platform_parent;
@@ -74,7 +88,18 @@ public class PlatformSpawner : MonoBehaviour
 
         if(Random.Range(0, 2) > 0)
         {
-            SpawnBird();
+            if(score > 25)
+            {
+                bird.GetComponent<fly>().enabled = true;
+                SpawnBird();
+
+            }
+            else if(score > 15)
+            {
+                bird.GetComponent<fly>().enabled = false;
+                SpawnBird();
+            }
+
         }
 
     }
@@ -93,5 +118,8 @@ public class PlatformSpawner : MonoBehaviour
         GameObject newBird = Instantiate(bird, temp, Quaternion.identity);
 
         newBird.transform.parent = platform_parent;
+
     }
+
+
 }
