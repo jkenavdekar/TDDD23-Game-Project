@@ -7,8 +7,6 @@ public class PlatformSpawner : MonoBehaviour
 
     public static PlatformSpawner instance;
 
-    private int score;
-
 
     [SerializeField]
     private GameObject left_platform, right_platform;
