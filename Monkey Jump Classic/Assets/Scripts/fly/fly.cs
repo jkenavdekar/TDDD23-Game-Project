@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class fly : MonoBehaviour
 {
-    public float speed = 5f;
+    public float speed = 2f;
 
     bool swch = true;
 

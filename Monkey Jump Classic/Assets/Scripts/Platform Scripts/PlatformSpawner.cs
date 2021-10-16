@@ -56,6 +56,7 @@ public class PlatformSpawner : MonoBehaviour
         {
             if(score <= 10 )
             {
+                bird.GetComponent<fly>().enabled = false;
                 right_platform.GetComponent<platformrightmover>().enabled = false;
                 left_platform.GetComponent<platformleftmover>().enabled = false;
             }
@@ -89,12 +90,12 @@ public class PlatformSpawner : MonoBehaviour
             }
             
         }
-        if(score > 15)
+        if(score > 25)
         {
             bird.GetComponent<fly>().enabled = true;
         }
         
-        if(score > 20)
+        if(score > 30)
         {
             right_platform.GetComponent<platformrightmover>().enabled = true;
             left_platform.GetComponent<platformleftmover>().enabled = true;
