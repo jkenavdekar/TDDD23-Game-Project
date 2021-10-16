@@ -18,6 +18,11 @@ public class PlayerScript : MonoBehaviour
     private int scorecount;
     private float counterFlag;
 
+    public float health = 100f;
+
+    [SerializeField]
+    private Image health_UI;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -29,8 +34,8 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+
         move();
-        
     }
 
     void move()
@@ -44,16 +49,19 @@ public class PlayerScript : MonoBehaviour
 
         if(player_Died && counterFlag >= 100)
         {
+            health_UI.fillAmount = 0f;
             return;
         }
 
         if(Input.GetAxisRaw("Horizontal") > 0)
         {
             myBody.velocity = new Vector2(move_Speed, myBody.velocity.y);
+            health_UI.fillAmount = (health-20f) / 100f;
         }
         else if(Input.GetAxisRaw("Horizontal") < 0)
         {
             myBody.velocity = new Vector2(-move_Speed, myBody.velocity.y);
+            health_UI.fillAmount = (health-20f) / 100f;
         }
     }
 
@@ -94,12 +102,16 @@ public class PlayerScript : MonoBehaviour
             push_Count++;
 
             SoundManager.instance.JumpSoundFX();
+
+            health = 50f;
+
+            health_UI.fillAmount = health / 100f;
         }
 
         if(target.tag == "ExtraPush")
         {
-            scorecount=scorecount+3;
-
+            scorecount += 2;
+            
             bananaTextScore.text = "x" + scorecount;
 
             myBody.velocity = new Vector2(myBody.velocity.x, extra_Push);
@@ -109,6 +121,9 @@ public class PlayerScript : MonoBehaviour
             push_Count++;
 
             SoundManager.instance.JumpSoundFX();
+
+            health = 100f;
+            health_UI.fillAmount = health / 100f;
         }
 
         if(push_Count == 2)
@@ -119,6 +134,11 @@ public class PlayerScript : MonoBehaviour
 
         if(target.tag == "FallDown" || target.tag == "Bird")
         {
+
+            health = 50f;
+
+            health_UI.fillAmount = health / 100f;
+
             myBody.velocity = new Vector2(0f, 0f);
 
             player_Died = true;
