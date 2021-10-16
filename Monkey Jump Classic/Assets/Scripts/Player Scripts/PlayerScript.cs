@@ -98,6 +98,9 @@ public class PlayerScript : MonoBehaviour
 
         if(target.tag == "ExtraPush")
         {
+            scorecount=scorecount+3;
+
+            bananaTextScore.text = "x" + scorecount;
 
             myBody.velocity = new Vector2(myBody.velocity.x, extra_Push);
 

@@ -54,6 +54,11 @@ public class PlatformSpawner : MonoBehaviour
 
         for(int i = 0; i< spawn_count; i++)
         {
+            if(score <= 10 )
+            {
+                right_platform.GetComponent<platformrightmover>().enabled = false;
+                left_platform.GetComponent<platformleftmover>().enabled = false;
+            }
             temp.y = last_y;
 
             if(platform_spawned % 2 == 0)
@@ -71,15 +76,10 @@ public class PlatformSpawner : MonoBehaviour
             newplatform.transform.parent = platform_parent;
 
             last_y += y_threshold;
-            platform_spawned++;
+            platform_spawned++;            
         }
 
-        if(score == 0)
-        {
-            bird.GetComponent<fly>().enabled = false;
-            right_platform.GetComponent<platformrightmover>().enabled = false;
-            left_platform.GetComponent<platformleftmover>().enabled = false;
-        }
+
          
         if(score > 10)
         {   
@@ -99,6 +99,7 @@ public class PlatformSpawner : MonoBehaviour
             right_platform.GetComponent<platformrightmover>().enabled = true;
             left_platform.GetComponent<platformleftmover>().enabled = true;
         }
+
     }
 
 
