@@ -68,26 +68,19 @@ public class PlatformSpawner : MonoBehaviour
             {
                 temp.x = Random.Range(left_x_min, left_x_max);
                 newplatform = Instantiate(right_platform, temp, Quaternion.identity);
-                if(score > 10)
-                {
-                    right_platform.GetComponent<platformrightmover>().enabled = true;
-                }
 
             }
             else
             {
                 temp.x = Random.Range(right_x_min, right_x_max);
                 newplatform = Instantiate(left_platform, temp, Quaternion.identity);
-                if(score > 10)
-                {
-                    left_platform.GetComponent<platformleftmover>().enabled = true;
-                }
+    
             }
 
             newplatform.transform.parent = platform_parent;
 
             last_y += y_threshold;
-            platform_spawned++;            
+            platform_spawned++;           
         }
 
 
@@ -100,15 +93,15 @@ public class PlatformSpawner : MonoBehaviour
             }
             
         }
-        if(score > 25)
-        {
-            bird.GetComponent<fly>().enabled = true;
-        }
-        
-        if(score > 30)
+        if(score > 11)
         {
             right_platform.GetComponent<platformrightmover>().enabled = true;
             left_platform.GetComponent<platformleftmover>().enabled = true;
+        }
+        
+        if(score > 60)
+        {
+            bird.GetComponent<fly>().enabled = true;
         }
 
     }

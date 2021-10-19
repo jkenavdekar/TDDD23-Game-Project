@@ -10,6 +10,7 @@ TagManager:
   - Platform
   - Bird
   - FallDown
+  - highscore
   layers:
   - Default
   - TransparentFX
