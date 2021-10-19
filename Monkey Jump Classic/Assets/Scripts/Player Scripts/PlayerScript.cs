@@ -30,6 +30,7 @@ public class PlayerScript : MonoBehaviour
 
         bananaTextScore = GameObject.Find("Text").GetComponent<Text>();
     }
+    
 
     // Update is called once per frame
     void FixedUpdate()
@@ -106,7 +107,7 @@ public class PlayerScript : MonoBehaviour
             health = 50f;
 
             health_UI.fillAmount = health / 100f;
-            PlayerPrefs.SetInt("highScore",scorecount);
+            PlayerPrefs.SetInt("Score",scorecount);
         }
 
         if(target.tag == "ExtraPush")
@@ -125,7 +126,7 @@ public class PlayerScript : MonoBehaviour
 
             health = 100f;
             health_UI.fillAmount = health / 100f;
-            PlayerPrefs.SetInt("highScore",scorecount);
+            PlayerPrefs.SetInt("Score",scorecount);
         }
 
         if(push_Count == 2)
@@ -146,8 +147,6 @@ public class PlayerScript : MonoBehaviour
             player_Died = true;
 
             SoundManager.instance.GameOverSoundFX();
-
-            print(PlayerPrefs.GetInt("highScore"));
 
             GameManager.instance.RestartGame();
 
