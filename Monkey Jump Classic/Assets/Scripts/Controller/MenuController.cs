@@ -9,4 +9,10 @@ public class MenuController : MonoBehaviour
     {
         SceneManager.LoadScene("Gameplay");
     }
+
+    public void ResetScore()
+    {
+        PlayerPrefs.SetInt("highscore",0);
+        PlayerPrefs.SetInt("prescore",0);
+    }
 }
