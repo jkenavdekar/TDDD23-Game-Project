@@ -20,6 +20,7 @@ public class PlayerScript : MonoBehaviour
     private int scorecount;
     private float counterFlag;
 
+    private bool MonkeyDied;
     public float health = 100f;
 
     [SerializeField]
@@ -71,8 +72,15 @@ public class PlayerScript : MonoBehaviour
     void OnTriggerEnter2D(Collider2D target)
     {
 
+        if(MonkeyDied)
+        {   
+            SceneManager.LoadScene("MainMenu");
+            return;
+        }
+
         if(player_Died)
-        {
+        {   
+            MonkeyDied = true;
             return;
         }
 
@@ -152,7 +160,7 @@ public class PlayerScript : MonoBehaviour
 
             GameManager.instance.RestartGame();
             
-            SceneManager.LoadScene("MainMenu");
+            
 
         }
 
