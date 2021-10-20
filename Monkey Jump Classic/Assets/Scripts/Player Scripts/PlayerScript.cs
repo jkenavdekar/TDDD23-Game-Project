@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerScript : MonoBehaviour
 {
@@ -149,6 +151,8 @@ public class PlayerScript : MonoBehaviour
             SoundManager.instance.GameOverSoundFX();
 
             GameManager.instance.RestartGame();
+            
+            SceneManager.LoadScene("MainMenu");
 
         }
 
