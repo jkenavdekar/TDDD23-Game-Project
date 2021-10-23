@@ -24,7 +24,7 @@ public class ScoreView : MonoBehaviour
 
      if (preScore > hscore)
      {
-        highScore.text = "Best :" + preScore.ToString();
+        highScore.text = "Best: " + preScore.ToString();
         PlayerPrefs.SetInt("highscore",preScore);
      }
      else

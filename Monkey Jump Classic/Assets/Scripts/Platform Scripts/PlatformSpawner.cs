@@ -32,6 +32,8 @@ public class PlatformSpawner : MonoBehaviour
     public float bird_y = 5f;
     private float bird_x_min = -2.3f, bird_x_max = 2.3f;
 
+    [SerializeField]
+    private GameObject fireball;
 
     // Start is called before the first frame update
     void Awake()
@@ -89,7 +91,7 @@ public class PlatformSpawner : MonoBehaviour
         {   
             if(Random.Range(0,2) > 0)
             {
-                SpawnBird();
+                SpawnBird(score);
             }
             
         }
@@ -109,17 +111,32 @@ public class PlatformSpawner : MonoBehaviour
 
 
     // Update is called once per frame
-    void SpawnBird()
+    void SpawnBird(int score)
     {
         Vector2 temp = transform.position;
 
-        temp.x = Random.Range(bird_x_min, bird_x_max);
+        Vector2 temp2 = transform.position;
+
+        if(score % 2 == 0)
+        {
+            temp.x = Random.Range(bird_x_min, -1.1f);
+        }
+        else
+        {
+            temp.x = Random.Range(1.1f, bird_x_max);       
+        }
 
         temp.y += bird_y;
 
         GameObject newBird = Instantiate(bird, temp, Quaternion.identity);
 
         newBird.transform.parent = platform_parent;
+
+        temp2.x = temp.x;
+
+        GameObject newFireBall = Instantiate(fireball, temp2, Quaternion.identity);
+
+        newFireBall.transform.parent = platform_parent;
 
     }
 

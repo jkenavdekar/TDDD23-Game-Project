@@ -9,12 +9,13 @@ public class PlayerScript : MonoBehaviour
 {
 
     private Rigidbody2D myBody;
-    public float move_Speed = 2f;
+    public float move_Speed = 3f;
     public float normal_Push = 10f;
     public float extra_Push = 14f;
     private bool initial_Push;
     private int push_Count;
     private bool player_Died;
+    private bool MonkeyDied;
 
     private Text bananaTextScore;
     private int scorecount;
@@ -70,9 +71,15 @@ public class PlayerScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D target)
     {
+        if(MonkeyDied)
+        {
+            SceneManager.LoadScene("MainMenu");
+            return;
+        }
 
         if(player_Died)
         {
+            MonkeyDied = true;
             return;
         }
 
@@ -151,8 +158,6 @@ public class PlayerScript : MonoBehaviour
             SoundManager.instance.GameOverSoundFX();
 
             GameManager.instance.RestartGame();
-            
-            SceneManager.LoadScene("MainMenu");
 
         }
 
