@@ -26,11 +26,9 @@ public class platformleftmover : MonoBehaviour
         }
         if(transform.position.x >= 4.6f){
             swch = false;
-            //spriteRenderer.flipX = true;
         }
         if(transform.position.x <= 0.3f){
             swch = true;
-            //spriteRenderer.flipX = false;
         }
     }
 

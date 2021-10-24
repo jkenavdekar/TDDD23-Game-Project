@@ -7,8 +7,4 @@ public class HealthScript : MonoBehaviour
 
     public float health = 100f;
     // Start is called before the first frame update
-    public void ApplyDamage()
-    {
-        
-    }
 }

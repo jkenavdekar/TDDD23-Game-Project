@@ -9,13 +9,7 @@ public class ScoreScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bananaTextScore = GameObject.Find("singlebanana").GetComponent<Text>();
-        
+        bananaTextScore = GameObject.Find("singlebanana").GetComponent<Text>();   
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

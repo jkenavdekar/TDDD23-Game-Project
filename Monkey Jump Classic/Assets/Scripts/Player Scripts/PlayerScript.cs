@@ -147,7 +147,7 @@ public class PlayerScript : MonoBehaviour
         if(target.tag == "FallDown" || target.tag == "Bird")
         {
 
-            health = 50f;
+            health = 0f;
 
             health_UI.fillAmount = health / 100f;
 
