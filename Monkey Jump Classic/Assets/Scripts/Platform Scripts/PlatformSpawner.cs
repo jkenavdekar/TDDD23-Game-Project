@@ -119,11 +119,11 @@ public class PlatformSpawner : MonoBehaviour
 
         if(score % 2 == 0)
         {
-            temp.x = Random.Range(bird_x_min, -1.1f);
+            temp.x = Random.Range(bird_x_min, -1.8f);
         }
         else
         {
-            temp.x = Random.Range(1.1f, bird_x_max);       
+            temp.x = Random.Range(1.8f, bird_x_max);   
         }
 
         temp.y += bird_y;

@@ -9,7 +9,7 @@ public class PlayerScript : MonoBehaviour
 {
 
     private Rigidbody2D myBody;
-    public float move_Speed = 3f;
+    public float move_Speed = 4f;
     public float normal_Push = 10f;
     public float extra_Push = 14f;
     private bool initial_Push;
